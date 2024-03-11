@@ -4,3 +4,5 @@ until christmas morning, called Advent of Code (AOC). I chose to do advent of co
 given language, and also maintain my skills in that language. The reason why I do not try new languages in
 AOC is that I do so in projects on the university. So to maintain my skills in languages I already master,
 I use them for the exercises in AOC.
+
+Eric Wastl's own desription: https://adventofcode.com/2023/about
