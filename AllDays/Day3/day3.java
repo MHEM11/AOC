@@ -1,7 +1,5 @@
 package AllDays.Day3;
 
-import java.math.BigInteger;
-
 import AllDays.Generics;
 
 public class day3 {

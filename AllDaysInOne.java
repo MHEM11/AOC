@@ -1,6 +1,7 @@
 import AllDays.Day1.*;
 import AllDays.Day2.*;
 import AllDays.Day3.*;
+import AllDays.Day4.day4;
 
 class MainClass {
     public static void main(String[] args) {
@@ -14,6 +15,10 @@ class MainClass {
 
         day3 Day3 = new day3();
         Day3.day3Part1();
+        System.out.println("");
+
+        day4 Day4 = new day4();
+        Day4.day4Part1();
         System.out.println("");
     }
 }
