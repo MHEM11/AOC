@@ -1,0 +1,97 @@
+ & 'C:\Program Files\Java\jdk-21\bin\java.exe' '--enable-preview' '-XX:+ShowCodeDetailsInExceptionMessages' '-cp' 'C:\Users\vage1\AppData\Roaming\Code\User\workspaceStorage\932e7ee0e7875db9dffc3948cccdbe73\redhat.java\jdt_ws\JavaAOC2020_bb6888e0\bin' 'MainClass' 
+
+ package AllDays.Day4;
+
+import AllDays.Generics;
+
+public class day4 {
+    public void day4Part1() {
+        // Print
+        System.out.println("Answers for day 4:");
+        //Make object
+        Generics readFile = new Generics();
+        // Read input file. fileToStringArrayNew splits when meeting a new line ("\n").
+        String[] input = readFile.fileToStringArraySpiltWhenNewLine("AllDays/Day4/input.txt");
+
+        int count = 0;
+        for (String line : input) {
+            if (ContainsAllReqFields(line))
+                count++;
+        }
+        System.out.println(count);
+    }
+    
+    public boolean ContainsAllReqFields(String line) {
+        if (line.contains("iyr") && line.contains("pid") && line.contains("eyr") && line.contains("hcl")
+        && line.contains("ecl") && line.contains("byr") && line.contains("hgt")) {
+            String[] newLine = line.split(" ");
+            String[] field= new String[2];
+            for (String newNewline : newLine) {
+                field = newNewline.split(":");
+            }
+                switch (field[0]) {
+                    case "byr":
+                        int byr = Integer.parseInt(field[1]);
+                        if (byr > 2002 || byr < 1920)
+                            return false;
+                        break;
+                    case "iyr":
+                        int iyr = Integer.parseInt(field[1]);
+                        if (iyr > 2020 || iyr < 2010)
+                            return false;
+                        break;
+                    case "eyr":
+                        int eyr = Integer.parseInt(field[1]);
+                        if (eyr > 2030 || eyr < 2020)
+                            return false;
+                        break;
+                    case "hgt":
+                        if (field[1].contains("cm")) {
+                            char[] charHeight = field[1].toCharArray();
+                            String newHeight = Character.toString(charHeight[0]) + Character.toString(charHeight[1]) + Character.toString(charHeight[2]);
+                            int hgt = Integer.parseInt(newHeight);
+                            if (hgt < 150 || hgt > 193)
+                            return false;
+                    } else if (field[1].contains("in")) {
+                        char[] charHeight = field[1].toCharArray();
+                        String newHeight = Character.toString(charHeight[0]) + Character.toString(charHeight[1]);
+                        int hgt = Integer.parseInt(newHeight);
+                            if (hgt < 59 || hgt > 76)
+                            return false;
+                        } else if (!field[1].contains("cm") || field[1].contains("in"))
+                        return false;
+                        break;
+                        case "hcl":
+                        if (field[1].contains("#")) {
+                            String hcl = field[1].replaceAll("#", "");
+                            if (hcl.length() == 6) {
+                                char[] hclLetters = hcl.toCharArray();
+                                for (char leterOrNumber : hclLetters) {
+                                    if (!Character.isDigit(leterOrNumber) || !Character.isLetter(leterOrNumber)) {
+                                        return false;
+                                    }
+                                }
+                            }
+                        }
+                        break;
+                    case "ecl":
+                        if ((!field[1].contains("amb")) || (!field[1].contains("blu")) || (!field[1].contains("brn"))
+                                || (!field[1].contains("gry")) || (!field[1].contains("grn"))
+                                || (!field[1].contains("hzl")) || (!field[1].contains("oth"))) {
+                            return false;
+                        }
+                        break;
+                    case "pid":
+                        if (field[1].length() == 9) {
+                            if (field[1].contains("[a-zA-Z]")) {
+                                return false;
+                            }
+                        }
+                        break;
+                    default:
+                        return true;
+                }
+                }
+                return false;
+    }
+}

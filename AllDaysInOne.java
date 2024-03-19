@@ -1,7 +1,7 @@
 import AllDays.Day1.*;
 import AllDays.Day2.*;
 import AllDays.Day3.*;
-import AllDays.Day4.day4;
+import AllDays.Day4.*;
 
 class MainClass {
     public static void main(String[] args) {
