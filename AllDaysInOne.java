@@ -2,6 +2,8 @@ import AllDays.Day1.*;
 import AllDays.Day2.*;
 import AllDays.Day3.*;
 import AllDays.Day4.*;
+import AllDays.Day5.*;
+import AllDays.Day6.*;
 
 class MainClass {
     public static void main(String[] args) {
@@ -20,5 +22,13 @@ class MainClass {
         day4 Day4 = new day4();
         Day4.day4Part1();
         System.out.println("");
+        
+        day5 Day5 = new day5();
+        Day5.day5Part1();
+        System.out.println("");
+
+        day6 Day6 = new day6();
+        Day6.day6Part1();
+        System.out.println("");        
     }
 }

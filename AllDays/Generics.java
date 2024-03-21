@@ -29,16 +29,15 @@ public class Generics {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             String temp = "";
-            while ((line = reader.readLine()) != null) {
-                if (line.length() > 0) {
-                    temp += line;
-                    temp += " ";
+                while ((line = reader.readLine()) != null) {
+                    if (line.length() > 0) {
+                        temp += line;
+                        temp += " ";
+                    } else if (line.length() == 0) {
+                        linesList.add(temp);
+                        temp = "";
+                    }
                 }
-                else if(line.length() == 0) {
-                    linesList.add(temp);
-                    temp = "";
-                }
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }
