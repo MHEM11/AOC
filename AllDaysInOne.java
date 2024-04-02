@@ -4,6 +4,7 @@ import AllDays.Day3.*;
 import AllDays.Day4.*;
 import AllDays.Day5.*;
 import AllDays.Day6.*;
+import AllDays.Day7.day7;
 
 class MainClass {
     public static void main(String[] args) {
@@ -29,6 +30,12 @@ class MainClass {
 
         day6 Day6 = new day6();
         Day6.day6Part1();
-        System.out.println("");        
+        System.out.println("");
+
+        day7 Day7 = new day7();
+        Day7.DAY7();
+        System.out.println("");
+        
+
     }
 }
